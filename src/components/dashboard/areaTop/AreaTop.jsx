@@ -1,71 +1,89 @@
 import { MdOutlineMenu } from "react-icons/md";
 import "./AreaTop.scss";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState,} from "react";
 import { SidebarContext } from "../../../context/SidebarContext";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { addDays } from "date-fns";
-import { DateRange } from "react-date-range";
+import { MdReadMore } from "react-icons/md";
+
+
+import { Link } from "react-router-dom";
 
 const AreaTop = () => {
-  const { openSidebar } = useContext(SidebarContext);
-
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: addDays(new Date(), 7),
-      key: "selection",
-    },
-  ]);
-
-  const [showDatePicker, setShowDatePicker] = useState(false);
-  const dateRangeRef = useRef(null);
-
-  const handleInputClick = () => {
-    setShowDatePicker(true);
-  };
-
-  const handleClickOutside = (event) => {
-    if (dateRangeRef.current && !dateRangeRef.current.contains(event.target)) {
-      setShowDatePicker(false);
-    }
-  };
-
+  const [ipCollections, setIpCollections] = useState([]);
+  const [searchTerm, setSearchTerm] = useState(""); 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+    const fetchCollections = async () => {
+      try {
+        const response = await fetch("http://localhost:4141/ips");
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+      
+        setIpCollections(data);
+      } catch (error) {
+        console.error("Error fetching collections:", error);
+      }
     };
-  }, []);
 
+    const intervalId = setInterval(fetchCollections, 1000); // Fetch data every 5 seconds
+
+    // Cleanup function to clear the interval when the component unmounts
+    return () => clearInterval(intervalId);
+  }, [setIpCollections]);
+
+  const filteredIPs = ipCollections.filter((ip) =>
+  ip && ip.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <section className="content-area-top">
       <div className="area-top-l">
-        <button
-          className="sidebar-open-btn"
-          type="button"
-          onClick={openSidebar}
-        >
-          <MdOutlineMenu size={24} />
-        </button>
-        <h2 className="area-top-title">Dashboard</h2>
-      </div>
-      <div className="area-top-r">
-        <div
-          ref={dateRangeRef}
-          className={`date-range-wrapper ${
-            !showDatePicker ? "hide-date-range" : ""
-          }`}
-          onClick={handleInputClick}
-        >
-          <DateRange
-            editableDateInputs={true}
-            onChange={(item) => setState([item.selection])}
-            moveRangeOnFirstSelection={false}
-            ranges={state}
-            showMonthAndYearPickers={false}
-          />
+        <h1 className="area-top-title">Lab Devices</h1>
+        <div className="search">
+          <span class="material-symbols-outlined">search</span>
+          <input
+          type="text"
+          className="searchip"
+          placeholder="Search IP Address"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
         </div>
+        
+        
+        {/* <i className="fas fa-search search-icon"></i>
+        <input
+          type="text"
+          className="searchip"
+          placeholder="Search IP Address"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        /> */}
+      </div>
+      <div>
+        <ul class="list">
+          {console.log(ipCollections)}
+          {Array.isArray(ipCollections) && filteredIPs.filter(ip => ip).map((ip,index) => (
+        <li className="list-item">
+        <div key={index} className="listinside">
+          <div
+              class="content">
+              IP: {ip}
+          </div>
+          <Link className="moreicon"  to={{
+                pathname: `/summarycards/${ip}`,
+              }}>
+            <MdReadMore style={{ fontSize: '2em' }}/>
+          </Link>
+          
+        </div>
+        </li>
+      ))
+      }
+        </ul>
       </div>
     </section>
   );

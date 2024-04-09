@@ -1,0 +1,532 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+}
+:root {
+    --font-montserrat: "Montserrat", sans-serif;
+    --font-open-sans: "Open Sans", sans-serif;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+
+section {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(90deg, hsl(253, 48%, 31%), hsl(251, 90%, 20%));
+    overflow: hidden;
+}
+section::after,
+section::before {
+    content: "";
+    position: absolute;
+    width: 20%;
+    aspect-ratio: 1;
+    pointer-events: none;
+}
+section::after {
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, hsla(306, 41%, 41%, 0.7) 0%, hsla(306, 41%, 41%, 0.1) 40%, #fff0 50%);
+    rotate: 90deg;
+}
+section::before {
+    bottom:  0;
+    right: 0;
+    background: linear-gradient(45deg, hsla(200, 66%, 43%, 0.7) 0%, hsla(200, 66%, 43%, 0.1) 40%, #fff0 50%);
+    rotate: -90deg;
+}
+
+nav {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+}
+nav .logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer; 
+    gap: 8px;
+}
+
+nav .logo img {
+    rotate: 0;
+    transition: 0.1s;
+}
+nav .logo:hover img {
+    rotate: 360deg;
+}
+nav .logo {
+    font-family: var(--font-open-sans);
+    font-weight: bold;
+    color: white;
+    font-size: 1.5rem;
+    letter-spacing: -0.1rem;
+    text-transform: uppercase;
+}
+
+nav .menu-icon {
+    color: white;
+    position: relative;
+    z-index: 10;
+    right: 5%;
+    letter-spacing: 1px;
+    rotate: 90deg;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+nav .menu-list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+nav .link {
+    display: flex;
+    gap: 30px;
+    font-family: var(--font-montserrat);
+    color: hsl(240, 77%, 72%);
+}
+nav .link li:hover a {
+    color: white;
+}
+nav .sign {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: var(--font-montserrat);
+    color: hsl(240, 77%, 72%);
+}
+
+nav .sign .login {
+    transition: 0.2s;
+}
+nav .sign .login:hover {
+    color: white;
+}
+nav .sign .sign-up {
+    color: white;
+    background: hsl(253, 100%, 68%);
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid hsl(253, 100%, 68%);
+    font-weight: 600;
+}
+nav .sign .sign-up:hover {
+    background: transparent;
+    
+}
+
+main {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+main .text-area {
+    position: relative;
+    width: 40%;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 3;
+}
+main .text-area .desc {
+    color: hsl(240, 71%, 89%);
+    font-family: var(--font-montserrat);
+}
+main .text-area .heading {
+    color: white;
+    font-family: var(--font-open-sans);
+    font-size: 4rem;
+    line-height: 4.2rem;
+    white-space: nowrap;
+}
+main .text-area .heading span:first-child {
+    color: hsl(42, 100%, 55%);
+}
+main .text-area .heading span:last-child {
+    color: hsl(240, 77%, 72%);
+}
+main .text-area .tag-ling {
+    margin-top: 20px;
+    color: hsl(240, 77%, 72%);
+    font-family: var(--font-montserrat);
+}
+main .text-area .btns {
+    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+}
+main .text-area .btns button {
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid hsl(253, 100%, 68%);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+main .text-area .btns .btn-sub {
+    background: hsl(253, 100%, 68%);
+}
+main .text-area .btns .btn-sub:hover {
+    background: transparent;
+}
+main .text-area .btns .btn-demo {
+    background: transparent;
+}
+main .text-area .btns .btn-demo:hover {
+    background: hsl(253, 100%, 68%);
+}
+
+main .image-area {
+    position: relative;
+    width: 50%;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+main .image-area img {
+    width: 110%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+ */
+ /* @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Permanent+Marker&family=Ubuntu:wght@300;400&family=Young+Serif&display=swap'); */
+ @import url('https://fonts.googleapis.com/css2?family=Acme&family=Protest+Revolution&family=Tilt+Neon&family=Titan+One&display=swap');
+ /*-------------------- CSS --------------------*/
+*{
+    margin: 0;padding: 0;box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+        min-height: 100vh;
+        overflow: hidden;
+        position: relative;
+    
+        background: hsla(240, 27%, 31%, 1);
+
+background: linear-gradient(90deg, hsla(240, 27%, 31%, 1) 0%, hsla(240, 9%, 9%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(240, 27%, 31%, 1) 0%, hsla(240, 9%, 9%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(240, 27%, 31%, 1) 0%, hsla(240, 9%, 9%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#393964", endColorstr="#141418", GradientType=1 );
+}
+.hero1{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 20px;
+}
+.navbar12{
+
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 100px 0 100px;
+    padding: 6px 10px 6px 10px;
+
+    
+    background: hsla(240, 21%, 42%, 1);
+
+background: linear-gradient(90deg, hsla(240, 21%, 42%, 1) 0%, hsla(240, 20%, 60%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(240, 21%, 42%, 1) 0%, hsla(240, 20%, 60%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(240, 21%, 42%, 1) 0%, hsla(240, 20%, 60%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#545482", endColorstr="#8585AE", GradientType=1 );
+    border-radius: 20px;
+}
+ .logo12{
+    height: 40px;
+    font-size: 30px;
+    color: black;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 700;
+    cursor: pointer;
+    padding-left: 3%;
+} 
+
+.logo12 span{
+    font-family: "Acme", sans-serif;
+
+    font-size: 22px;
+}
+.link12{
+    display: flex;
+    margin-left: 150px;
+    width: 100%;
+    justify-content: end;
+    
+}
+.link12  .liuhi {
+    list-style: none;
+    margin: 0 20px;
+    transition: 0.4s;
+    border-bottom: 2px solid transparent;
+}
+  .liuhi a{
+    font-family: "Acme", sans-serif;
+
+    text-decoration: none;
+    color: white;
+    position: relative;
+    top: 0;
+    transition: 0.4s;
+    font-size: 20px;
+    cursor: pointer;
+}
+ .liuhi:hover{
+    border-bottom: 2px solid white;
+}
+ .liuhi:hover a{
+    top: -4px;
+}
+
+.active12{
+    color: #ff8800;
+    font-weight: 600;
+}
+
+.heroimg12
+{
+    border: 5px solid #43436c;
+    border-radius: 40px;
+}
+
+.abcde{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    gap:50px;
+    /* padding: 50px 100px; */
+    padding: 70px;
+}  
+
+.textArea12{
+width: 50%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap:10px;
+}
+.head{
+    padding-top: 50px;
+    font-size: 100px;
+    font-weight: 300;
+    color: white;
+    line-height: 6rem;
+    /* font-family: "Acme", sans-serif;
+  font-weight: 400;
+  font-style: normal; */
+
+  font-family: "Titan One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.head span{
+
+    color: rgb(236, 85, 9);
+    font-size: 100px;
+    font-weight: 900;
+    font-family: "Titan One", sans-serif;
+    /* font-weight: 400; */
+    font-style: normal;
+}
+.para{
+    padding-top: 20px;
+    color: white;
+    margin-top: 20px;
+    font-size: 20px;
+     font-family: "Acme", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+/*     
+    font-family: "Protest Revolution", sans-serif;
+  font-weight: 400;
+  font-style: normal; */
+    /* font-family: "Titan One", sans-serif;
+    font-weight: 400;
+    font-style: normal; */
+    /* font-family: 'Permanent Marker', cursive; */
+}
+.btnsec
+{
+    padding: 10px;
+    /* padding-bottom:100px; */
+    /* position: relative; */
+    display: flex; 
+    /* flex-direction: column; */
+    justify-content: center;
+    
+
+    /* align-items: center; */
+}
+.btn12{
+  
+    width: 150px;
+    height: 50px;
+    border-radius: 12px;
+    outline: none;
+    font-size: 20px;
+    color: white;
+    margin-top: 70px;
+    cursor: pointer;
+    font-family: "Acme", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    
+}
+.btn12_dark{
+    
+    background: black;
+    border: 1px solid black;
+    margin-right: 30px;
+}
+.btn12_dark:hover{
+    background: transparent;
+    border: 1px solid white;
+}
+.btn12_light{
+    background: transparent;
+    border: 1px solid white;
+}
+.btn12_light:hover{
+    background: black;
+    border: 1px solid black;
+}
+ 
+
+.imageArea{
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+.imageArea img{
+    position: absolute;
+}
+
+.img1{
+    width: 30%;
+    top: 60%;
+    right: 10%;
+}
+.img2{
+    width: 100%;
+    top: 0;
+    right: 0;
+}
+.img3{
+    width: 18%;
+    top: 10%;
+    right: 50%;
+    animation: flote 3s linear infinite alternate;
+}
+.img4{
+    width: 20%;
+    top: 65%;
+    right: 80%;
+    animation: flote 5s linear infinite alternate-reverse;
+}
+.img5{
+    width: 40%;
+    top: 20%;
+    right: 15%;
+}
+.img6{
+    width: 10%;
+    top: 400px;
+    right: 300px;
+    animation: rotate 15s  linear  infinite;
+
+}
+.img7{
+    width: 10%;
+    top: 480px;
+    right: 360px;
+    animation: rotate 15s  linear  infinite;
+}
+.img8{
+    width: 7%;
+    top: 500px;
+    right: 300px;
+    animation: rotate 10s  linear  infinite;
+}
+.img9{
+    width: 45%;
+    top: 30%;
+    right: 40%;
+}
+.img10{
+    width: 25%;
+    top: 7%;
+    right: 65%;
+}
+@keyframes flote {
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(20px);
+    }
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.footer12{
+    position: relative;
+    text-align: center;
+    height: 10vh;
+    padding-top: 30px;
+}
+.footer12 img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 150px;
+    transform: translateY(-50%);
+}
+.social12{
+    color: #efefef;
+    letter-spacing: .2rem;
+
+}
+.social12 a{
+    text-decoration: none;
+    color: white;
+}
+.social12 a:hover{
+    color: #efefef;
+}

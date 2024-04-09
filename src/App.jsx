@@ -7,6 +7,11 @@ import MoonIcon from "./assets/icons/moon.svg";
 import SunIcon from "./assets/icons/sun.svg";
 import BaseLayout from "./layout/BaseLayout";
 import { Dashboard, PageNotFound } from "./screens";
+import SummaryCards from "./components/dashboard/summarycards/summaryCards";
+import NetworkDetailsPage from "./components/dashboard/network_details/networkDetails";
+import ProcessDetailsPage from "./components/dashboard/processDetails/processDetails";
+import ConnectedDevicesPage from "./components/dashboard/connectedDevices.jsx/connectedDevices";
+import Home from "./components/home/home";
 
 function App() {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -24,9 +29,14 @@ function App() {
     <>
       <Router>
         <Routes>
+          <Route path="/" element={<Home />}></Route>
           <Route element={<BaseLayout />}>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<PageNotFound />} />
+            <Route path="/summarycards/:ipAddress" element={<SummaryCards />} />
+            <Route path="/network-details/:ipAddress" element={<NetworkDetailsPage />} />
+            <Route path="/process-details/:ipAddress" element={<ProcessDetailsPage />} />
+            <Route path="/connected-devices/:ipAddress" element={<ConnectedDevicesPage />} />
           </Route>
         </Routes>
 

@@ -132,12 +132,33 @@ ul {
 
 .page-wrapper {
   background-color: var(--background-color);
+  background-color:#232347;
+  background: hsla(240, 27%, 31%, 1);
+
+  background: linear-gradient(90deg, hsla(240, 27%, 31%, 1) 0%, hsla(240, 9%, 9%, 1) 100%);
+  
+  background: -moz-linear-gradient(90deg, hsla(240, 27%, 31%, 1) 0%, hsla(240, 9%, 9%, 1) 100%);
+  
+  background: -webkit-linear-gradient(90deg, hsla(240, 27%, 31%, 1) 0%, hsla(240, 9%, 9%, 1) 100%);
+  
+  // filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#393964", endColorstr="#141418", GradientType=1 );
   min-height: 100vh;
   overflow: hidden;
 }
 
 .content-wrapper {
   background-color: var(--background-color);
+  background-color: #232347;
+  background: hsla(240, 27%, 31%, 1);
+
+  background: linear-gradient(90deg, hsla(240, 27%, 31%, 1) 0%, hsla(240, 9%, 9%, 1) 100%);
+  
+  background: -moz-linear-gradient(90deg, hsla(240, 27%, 31%, 1) 0%, hsla(240, 9%, 9%, 1) 100%);
+  
+  background: -webkit-linear-gradient(90deg, hsla(240, 27%, 31%, 1) 0%, hsla(240, 9%, 9%, 1) 100%);
+  
+  // filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#393964", endColorstr="#141418", GradientType=1 );
+
   min-height: 100vh;
   padding: 50px 58px;
   margin-left: 260px;

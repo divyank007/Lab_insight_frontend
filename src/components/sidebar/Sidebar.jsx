@@ -3,6 +3,8 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { LIGHT_THEME } from "../../constants/themeConstants";
 import LogoBlue from "../../assets/images/logo_blue.svg";
 import LogoWhite from "../../assets/images/logo_white.svg";
+import { MdOutlineHome } from 'react-icons/md';
+
 import {
   MdOutlineAttachMoney,
   MdOutlineBarChart,
@@ -49,8 +51,9 @@ const Sidebar = () => {
     >
       <div className="sidebar-top">
         <div className="sidebar-brand">
-          <img src={theme === LIGHT_THEME ? LogoBlue : LogoWhite} alt="" />
-          <span className="sidebar-brand-text">tabernam.</span>
+          {/* <img src={theme === LIGHT_THEME ? LogoBlue : LogoWhite} alt="" /> */}
+          <img className="sidebar-brand-img" width="40" height="40" src="https://img.icons8.com/ios-filled/50/a4a4d2/workstation.png" alt="workstation"/>
+          <span className="sidebar-brand-text">Lab_Insight</span>
         </div>
         <button className="sidebar-close-btn" onClick={closeSidebar}>
           <MdOutlineClose size={24} />
@@ -60,21 +63,22 @@ const Sidebar = () => {
         <div className="sidebar-menu">
           <ul className="menu-list">
             <li className="menu-item">
-              <Link to="/" className="menu-link active">
+              <Link to="/dashboard" className="menu-link active">
                 <span className="menu-link-icon">
                   <MdOutlineGridView size={18} />
                 </span>
                 <span className="menu-link-text">Dashboard</span>
               </Link>
             </li>
-            <li className="menu-item">
+             <li className="menu-item">
               <Link to="/" className="menu-link">
-                <span className="menu-link-icon">
-                  <MdOutlineBarChart size={20} />
-                </span>
-                <span className="menu-link-text">Statistics</span>
+              <span className="menu-link-icon">
+                <MdOutlineHome size={18} />
+              </span>
+                <span className="menu-link-text">Home</span>
               </Link>
             </li>
+            {/*
             <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
@@ -114,20 +118,20 @@ const Sidebar = () => {
                 </span>
                 <span className="menu-link-text">Messages</span>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
 
         <div className="sidebar-menu sidebar-menu2">
           <ul className="menu-list">
-            <li className="menu-item">
+            {/* <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
                   <MdOutlineSettings size={20} />
                 </span>
                 <span className="menu-link-text">Settings</span>
               </Link>
-            </li>
+            </li> */}
             <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
