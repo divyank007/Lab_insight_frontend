@@ -65,7 +65,7 @@ const AreaTop = () => {
       </div>
       <div>
         <ul class="list">
-          {console.log(ipCollections)}
+          {/* {console.log(ipCollections)} */}
           {Array.isArray(ipCollections) && filteredIPs.filter(ip => ip).map((ip,index) => (
         <li className="list-item">
         <div key={index} className="listinside">
