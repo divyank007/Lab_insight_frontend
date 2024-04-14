@@ -10,7 +10,19 @@ const BaseLayout = () => {
       <div className="content-wrapper">
         <Outlet />
       </div>
-      <ToastContainer />
+      <ToastContainer
+position="bottom-left"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss={false}
+draggable
+pauseOnHover
+theme="dark"
+transition: Bounce
+/>
 
     </main>
   );

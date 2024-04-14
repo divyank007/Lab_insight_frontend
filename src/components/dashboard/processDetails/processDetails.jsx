@@ -25,10 +25,14 @@ const ProcessDetailsPage = () => {
     fetchProcessDetails();
 
     // Cleanup function
-    return () => {
-      // Perform cleanup if needed
-    };
-  }, [ipAddress]);
+    const timerId = setInterval(fetchProcessDetails, 5000);
+    // Clean up function to clear the timer when the component unmounts
+  return () => clearInterval(timerId);
+    // return () => {
+    //   // Perform cleanup if needed
+    // };
+  }, []);
+
 
   const searchTable = (e) => {
     const searchValue = e.target.value.toLowerCase();

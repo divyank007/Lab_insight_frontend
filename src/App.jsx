@@ -20,10 +20,76 @@ import Login from "./components/login/login";
 function App() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
-  // adding dark-mode class if the dark mode is set on to the body tag
+ 
+//  useEffect(() => {
+//   const fetchConnectedDevices = () => {
+//     fetch('/connected_devices')
+//       .then(response => {
+//         if (!response.ok) {
+//           throw new Error('Network response was not ok');
+//         }
+//         return response; // Parse JSON response here
+//       })
+//       .then(data => {
+//         console.log('Response data:', data); // Log the response data
+
+//         if (data.message === 'Secondary device detected') {
+//           console.log(`Secondary device detected on IP address ${data.ipAddress}`);
+//         } else {
+//           console.log('No secondary device detected');
+//         }
+//       })
+//       .catch(error => console.error('Error fetching connected devices:', error));
+//   };
+
+//   fetchConnectedDevices();
+
+//   // Set a timer to fetch connected devices every 60 seconds
+//   const timerId = setInterval(fetchConnectedDevices, 60000);
+
+//   // Clean up function to clear the timer when the component unmounts
+//   return () => clearInterval(timerId);
+// }, []);
+
+
+// const [alertMessage, setAlertMessage] = useState('');
+
+  // useEffect(() => {
+  //   const fetchConnectedDevices = async () => {
+  //     try {
+  //       // Make a POST request to the backend endpoint
+  //       const response = await axios.post('/connected_devices', formData);
+  //       console.log(response);
+  //       // Check the response for secondary device detection
+  //       if (response.data.message === 'Secondary device detected') {
+  //         // Display an alert if a secondary device is detected
+  //         // setAlertMessage('Secondary device is detected');
+  //         alert('Secondary device is detected');
+  //       } else {
+  //         // No secondary device detected
+  //         // setAlertMessage('No secondary device detected');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching connected devices:', error);
+  //       // setAlertMessage('Error fetching connected devices');
+  //       alert('Error fetching connected devices');
+  //     }
+  //   };
+
+  //   // Call the function to fetch connected devices on component mount
+  //   fetchConnectedDevices();
+
+  //   // Set a timer to fetch connected devices every 60 seconds
+  //   const timerId = setInterval(fetchConnectedDevices, 60000);
+
+  //   // Clean up function to clear the timer when the component unmounts
+  //   return () => clearInterval(timerId);
+  // }, []);
+
   useEffect(() => {
     const fetchConnectedDevices = () => {
-      fetch('/connected_devices')
+      // Make a GET request to the backend API endpoint
+      fetch(`http://localhost:4141/check_secondary_device`)
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -31,25 +97,32 @@ function App() {
           return response.json();
         })
         .then(data => {
-          console.log('Response data:', data); // Log the response data
-  
-          if (data.message === 'Secondary device detected') {
-            console.log(`Secondary device detected on IP address ${data.ipAddress}`);
+          // Check if secondary devices are detected
+          if (data.message === "Secondary devices detected") {
+            // Display toast popup for each IP address
+            data.secondaryDevicesIPs.forEach(ip => {
+              toast.success(`Secondary device detected on IP address ${ip}`);
+            });
           } else {
-            console.log('No secondary device detected');
+            // No secondary devices detected
+            console.log("No secondary devices detected");
           }
         })
-        .catch(error => console.error('Error fetching connected devices:', error));
+        .catch(error => {
+          // Handle errors
+          console.error('There was a problem with the fetch operation:', error);
+        });
     };
   
     fetchConnectedDevices();
   
     // Set a timer to fetch connected devices every 60 seconds
-    const timerId = setInterval(fetchConnectedDevices, 60000);
+    const timerId = setInterval(fetchConnectedDevices, 7000);
   
     // Clean up function to clear the timer when the component unmounts
     return () => clearInterval(timerId);
   }, []);
+  
   
   useEffect(() => {
     if (theme === DARK_THEME) {

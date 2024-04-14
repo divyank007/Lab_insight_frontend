@@ -24,11 +24,15 @@ const ConnectedDevicesPage = () => {
 
     fetchConnectedDevices();
     
-    // Cleanup function
-    return () => {
-      // Perform cleanup if needed
-    };
-  }, [ipAddress]);
+
+    // Set a timer to fetch connected devices every 60 seconds
+    const timerId = setInterval(fetchConnectedDevices, 5000);
+    // Clean up function to clear the timer when the component unmounts
+  return () => clearInterval(timerId);
+    // return () => {
+    //   // Perform cleanup if needed
+    // };
+  }, []);
 
   const [searchTerm, setSearchTerm] = useState('');
 
