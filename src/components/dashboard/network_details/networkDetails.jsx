@@ -27,7 +27,7 @@ const NetworkDetailsPage = () => {
 
     fetchNetworkDetails();
     
-    const timerId = setInterval(fetchNetworkDetails,100);
+    const timerId = setInterval(fetchNetworkDetails,10000);
     // Clean up function to clear the timer when the component unmounts
   return () => clearInterval(timerId);
     // return () => {

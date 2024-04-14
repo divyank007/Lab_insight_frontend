@@ -25,7 +25,7 @@ const ProcessDetailsPage = () => {
     fetchProcessDetails();
 
     // Cleanup function
-    const timerId = setInterval(fetchProcessDetails, 5000);
+    const timerId = setInterval(fetchProcessDetails, 10000);
     // Clean up function to clear the timer when the component unmounts
   return () => clearInterval(timerId);
     // return () => {
